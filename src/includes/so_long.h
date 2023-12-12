@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:12:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/10 07:54:17 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:30:46 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	char		**map;
-	void		*map_img;
+	void		*floor_img;
     int			map_width;
     int			map_height;
 	t_player	player;
