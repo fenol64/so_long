@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:14:21 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/14 14:08:06 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:14:00 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int    load_images(t_game *game)
 
     game->floor_img = mlx_xpm_file_to_image(game->mlx, "src/assets/floor.xpm", &w, &h);
     game->wall_img = mlx_xpm_file_to_image(game->mlx, "src/assets/wall.xpm", &w, &h);
-    game->collectible_img = mlx_xpm_file_to_image(game->mlx, "src/assets/collectible.xpm", &w, &h);
+    game->collectible.img = mlx_xpm_file_to_image(game->mlx, "src/assets/collectible.xpm", &w, &h);
     game->player.img = mlx_xpm_file_to_image(game->mlx, "src/assets/player.xpm", &w, &h);
-    game->exit_img = mlx_xpm_file_to_image(game->mlx, "src/assets/door.xpm", &w, &h);
+    game->exit.img = mlx_xpm_file_to_image(game->mlx, "src/assets/door.xpm", &w, &h);
     return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 22:10:41 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/14 13:58:35 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:14:12 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	render_map(t_game *game)
             if (game->map[y][x] == '1')
                 mlx_put_image_to_window(game->mlx, game->win, game->wall_img, x * BLOCK_SIZE, y * BLOCK_SIZE);
             else if (game->map[y][x] == 'C')
-                mlx_put_image_to_window(game->mlx, game->win, game->collectible_img, x * BLOCK_SIZE, y * BLOCK_SIZE);
+                mlx_put_image_to_window(game->mlx, game->win, game->collectible.img, x * BLOCK_SIZE, y * BLOCK_SIZE);
             else if (game->map[y][x] == 'P')
                 mlx_put_image_to_window(game->mlx, game->win, game->player.img, x * BLOCK_SIZE, y * BLOCK_SIZE);
             else if (game->map[y][x] == 'E')
-                mlx_put_image_to_window(game->mlx, game->win, game->exit_img, x * BLOCK_SIZE, y * BLOCK_SIZE);
+                mlx_put_image_to_window(game->mlx, game->win, game->exit.img, x * BLOCK_SIZE, y * BLOCK_SIZE);
             else
                 mlx_put_image_to_window(game->mlx, game->win, game->floor_img, x * BLOCK_SIZE, y * BLOCK_SIZE);
         }

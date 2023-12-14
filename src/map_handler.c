@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/14 13:37:53 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:18:21 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,11 @@ static char	*get_map_str(char *map_path)
 	return (ret);
 }
 
-int *get_map_dimensions(char **map_str)
+void    get_map_dimensions(char **map_str, t_game *game)
 {
-    int *dimensions;
     int i;
     int j;
 
-    dimensions = malloc(sizeof(int) * 2);
     i = 0;
     j = 0;
     while (map_str[i])
@@ -52,31 +50,36 @@ int *get_map_dimensions(char **map_str)
         j = 0;
         while (map_str[i][j])
         {
+            if (map_str[i][j] == 'P')
+            {
+                game->player.x = j;
+                game->player.y = i;
+            }
+            else if (map_str[i][j] == 'C')
+                game->collectible.amount++;
+            else if (map_str[i][j] == 'E')
+                game->exit.amount++;
             j++;
         }
         i++;
     }
-    dimensions[0] = j;
-    dimensions[1] = i;
-    return (dimensions);
+    game->map_width = j * BLOCK_SIZE;
+    game->map_height = i * BLOCK_SIZE;
 }
 
 int	check_map(char *map_path, t_game *game)
 {
 	char	*map_str;
-    int     *dimensions;
+
+
 	if (!(map_path && check_extension(map_path)))
 		return (0);
-
 	map_str = get_map_str(map_path);
 	game->map = ft_split(map_str, '\n');
-    dimensions = get_map_dimensions(game->map);
-    game->map_width = dimensions[0] * BLOCK_SIZE;
-    game->map_height = dimensions[1] * BLOCK_SIZE;
-	game->player.amount = 0;
+    get_map_dimensions(game->map, game);
 	game->collectible.amount = 0;
 	game->exit.amount = 0;
-    free(dimensions);
+	game->player.amount = 0;
 	free(map_str);
 	return (1);
 }

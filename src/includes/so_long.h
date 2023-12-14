@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:12:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/14 13:24:47 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:18:59 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ typedef struct s_game
 	char		**map;
 	void		*floor_img;
     void		*wall_img;
-    void		*collectible_img;
-    void		*exit_img;
     int			map_width;
     int			map_height;
 	t_player	player;
