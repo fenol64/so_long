@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/13 22:57:51 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:37:53 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	check_map(char *map_path, t_game *game)
 	map_str = get_map_str(map_path);
 	game->map = ft_split(map_str, '\n');
     dimensions = get_map_dimensions(game->map);
-    game->map_width = dimensions[0] * 16;
-    game->map_height = dimensions[1] * 16;
+    game->map_width = dimensions[0] * BLOCK_SIZE;
+    game->map_height = dimensions[1] * BLOCK_SIZE;
 	game->player.amount = 0;
 	game->collectible.amount = 0;
 	game->exit.amount = 0;

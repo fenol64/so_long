@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "../src/includes/so_long.h"
 
 void free_split(char **splitted)
 {

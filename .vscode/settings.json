@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        ".sequelizerc": "javascript",
+        ".stylelintrc": "json",
+        ".prettierrc": "json",
+        ".env.*": "dotenv",
+        "so_long.h": "c",
+        "libft.h": "c",
+        "unistd.h": "c"
+    }
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:12:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/13 22:24:04 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:24:47 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # include "../../libs/libft/includes/libft.h"
 # include "../../libs/mlx/mlx.h"
-# include "key_constants.h"
+# include "constants.h"
 
 typedef struct s_player
 {
@@ -42,6 +42,8 @@ typedef struct s_game
 	char		**map;
 	void		*floor_img;
     void		*wall_img;
+    void		*collectible_img;
+    void		*exit_img;
     int			map_width;
     int			map_height;
 	t_player	player;
