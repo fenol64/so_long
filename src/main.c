@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:14:21 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/12 15:46:32 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/13 22:25:53 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 
 int    load_images(t_game *game)
 {
-    int w = 50;
-    int h = 50;
+    int w;
+    int h;
 
-    game->floor_img = mlx_xpm_file_to_image(game->mlx, "./assets/floor_1.xpm", &w, &h);
-    ft_printf("w: %d\n", game->floor_img);
-    if (!game->floor_img)
-        ft_printf("Error to get image\n");
-    if (!mlx_put_image_to_window(game->mlx, game->win, game->floor_img, w, h))
-        ft_printf("Error to load image\n");
+    game->floor_img = mlx_xpm_file_to_image(game->mlx, "src/assets/floor.xpm", &w, &h);
+    game->wall_img = mlx_xpm_file_to_image(game->mlx, "src/assets/wall.xpm", &w, &h);
     return (1);
 }
 
@@ -39,10 +35,10 @@ int	main(int argc, char **argv)
 			return (error());
 
 		game.mlx = mlx_init();
-        game.win = mlx_new_window(game.mlx, 900, 500, "so long");
+        load_images(&game);
+        game.win = mlx_new_window(game.mlx, game.map_width, game.map_height, "so_long");
 
-        if (load_images(&game) == 0)
-            return (error());
+        render_map(&game);
 
 		mlx_key_hook(game.win, key_hook, &game);
 		mlx_hook(game.win, 17, 0, close_hook, &game);

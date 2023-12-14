@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:12:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/12 15:30:46 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/13 22:24:04 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_game
 	void		*win;
 	char		**map;
 	void		*floor_img;
+    void		*wall_img;
     int			map_width;
     int			map_height;
 	t_player	player;
@@ -60,5 +61,6 @@ int	key_hook(int keycode, t_game *game);
 
 // MAP PARSER
 int	check_map(char *map_path, t_game *game);
+void	render_map(t_game *game);
 
 #endif
