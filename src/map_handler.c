@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/14 15:18:21 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/15 02:12:51 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void    get_map_dimensions(char **map_str, t_game *game)
             {
                 game->player.x = j;
                 game->player.y = i;
+                game->player.amount++;
             }
             else if (map_str[i][j] == 'C')
                 game->collectible.amount++;
@@ -76,10 +77,11 @@ int	check_map(char *map_path, t_game *game)
 		return (0);
 	map_str = get_map_str(map_path);
 	game->map = ft_split(map_str, '\n');
-    get_map_dimensions(game->map, game);
+    game->move_count = 0;
 	game->collectible.amount = 0;
-	game->exit.amount = 0;
 	game->player.amount = 0;
+	game->exit.amount = 0;
+    get_map_dimensions(game->map, game);
 	free(map_str);
 	return (1);
 }

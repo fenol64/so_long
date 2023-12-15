@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:14:21 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/14 15:14:00 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/15 01:57:32 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,7 @@ int	main(int argc, char **argv)
 		game.mlx = mlx_init();
         load_images(&game);
         game.win = mlx_new_window(game.mlx, game.map_width, game.map_height, "so_long");
-
         render_map(&game);
-
 		mlx_key_hook(game.win, key_hook, &game);
 		mlx_hook(game.win, 17, 0, close_hook, &game);
 		mlx_loop(game.mlx);

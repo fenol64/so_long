@@ -3,64 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 04:30:33 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/14 15:45:02 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/15 02:10:41 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	move_up(t_game *game)
-{
-	if (game->map[game->player.y - 1][game->player.x] != '1')
-	{
-		game->map[game->player.y][game->player.x] = '0';
-		game->player.y -= 1;
-		game->map[game->player.y][game->player.x] = 'P';
-		render_map(game);
-	}
-}
-
-void	move_down(t_game *game)
-{
-	if (game->map[game->player.y + 1][game->player.x] != '1')
-	{
-		game->map[game->player.y][game->player.x] = '0';
-		game->player.y += 1;
-		game->map[game->player.y][game->player.x] = 'P';
-		render_map(game);
-	}
-}
-
-void	move_left(t_game *game)
-{
-	if (game->map[game->player.y][game->player.x - 1] != '1')
-	{
-		game->map[game->player.y][game->player.x] = '0';
-		game->player.x -= 1;
-		game->map[game->player.y][game->player.x] = 'P';
-		render_map(game);
-	}
-}
-
-void	move_right(t_game *game)
-{
-	if (game->map[game->player.y][game->player.x + 1] != '1')
-	{
-		game->map[game->player.y][game->player.x] = '0';
-		game->player.x += 1;
-		game->map[game->player.y][game->player.x] = 'P';
-		render_map(game);
-	}
-}
-
 int	key_hook(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
-		close_hook(game);
-	else if (keycode == KEY_W || keycode == KEY_UP)
+	{
+        close_hook(game);
+        return (0);
+	}
+    game->move_count++;
+    if (keycode == KEY_W || keycode == KEY_UP)
 		move_up(game);
 	else if (keycode == KEY_A || keycode == KEY_LEFT)
 		move_left(game);

@@ -34,10 +34,10 @@ e: re
 	./$(NAME)
 
 em: re
-	./$(NAME) maps/map.ber
+	./$(NAME) maps/large_map.ber
 
 val: re
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) map.ber
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) large_map.ber
 
 norm:
 	norminette src libs/libft
