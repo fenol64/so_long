@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/15 02:12:51 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:22:22 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,15 @@ static char	*get_map_str(char *map_path)
 
 	fd = open(map_path, O_RDONLY);
 	line = get_next_line(fd);
+    ret = ft_strdup("");
 	while (line)
 	{
 		ret = ft_strjoin_free_s1(ret, line);
 		free(line);
 		line = get_next_line(fd);
 	}
-	free(line);
+	if (line)
+        free(line);
 	close(fd);
 	return (ret);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:14:21 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/15 01:57:32 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:20:44 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 {
     t_game	game;
 
+    //ft_memset(&game, 0, sizeof(game));
 	if (argc != 2)
 		ft_printf("Usage: ./so_long <map_path>.ber\n");
 	else
