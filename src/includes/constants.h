@@ -6,13 +6,12 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:21:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/14 14:47:58 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:02:48 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONSTANTS_H
 # define CONSTANTS_H
-
 
 # define BLOCK_SIZE 32
 
