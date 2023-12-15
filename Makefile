@@ -37,7 +37,7 @@ em: re
 	./$(NAME) maps/large_map.ber
 
 val: re
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) large_map.ber
+	valgrind --leak-check=full ./$(NAME) maps/large_map.ber
 
 norm:
 	norminette src libs/libft
