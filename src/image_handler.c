@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 19:25:39 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/15 20:40:51 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:49:17 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ int	load_images(t_game *game)
 	load_image(game, &game->floor_img, "src/assets/floor.xpm");
 	load_image(game, &game->wall_img, "src/assets/wall.xpm");
 	load_image(game, &game->collectible.img, "src/assets/collectible.xpm");
-	load_image(game, &game->player.img, "src/assets/player.xpm");
+	load_image(game, &game->player.img_up, "src/assets/player-left.xpm");
+	load_image(game, &game->player.img_left, "src/assets/player-left.xpm");
+	load_image(game, &game->player.img_right, "src/assets/player-right.xpm");
+	load_image(game, &game->player.img_up, "src/assets/player-up.xpm");
+	load_image(game, &game->player.img_down, "src/assets/player-down.xpm");
 	load_image(game, &game->exit.img, "src/assets/door.xpm");
 	return (1);
 }

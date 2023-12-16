@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 02:10:28 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/15 20:30:04 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:32:19 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	move_up(t_game *game)
 {
+	game->player.direction = 'U';
 	if (game->map[game->player.y - 1][game->player.x] != '1')
 	{
 		if (game->map[game->player.y - 1][game->player.x] == 'E'
@@ -33,6 +34,7 @@ void	move_up(t_game *game)
 
 void	move_down(t_game *game)
 {
+	game->player.direction = 'D';
 	if (game->map[game->player.y + 1][game->player.x] != '1')
 	{
 		if (game->map[game->player.y + 1][game->player.x] == 'E'
@@ -52,6 +54,7 @@ void	move_down(t_game *game)
 
 void	move_left(t_game *game)
 {
+	game->player.direction = 'L';
 	if (game->map[game->player.y][game->player.x - 1] != '1')
 	{
 		if (game->map[game->player.y][game->player.x - 1] == 'E'
@@ -71,6 +74,7 @@ void	move_left(t_game *game)
 
 void	move_right(t_game *game)
 {
+	game->player.direction = 'R';
 	if (game->map[game->player.y][game->player.x + 1] != '1')
 	{
 		if (game->map[game->player.y][game->player.x + 1] == 'E'

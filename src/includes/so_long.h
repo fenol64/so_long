@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:12:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/15 20:38:18 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:48:33 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,15 @@
 
 typedef struct s_player
 {
-	void	*img;
+	void	*img_up;
+	void	*img_left;
+	void	*img_right;
+	void	*img_down;
 	int		x;
 	int		y;
 	int		amount;
+	char	direction;
+
 }	t_player;
 
 typedef struct s_block
@@ -60,6 +65,7 @@ int		close_hook(t_game *game);
 int		key_hook(int keycode, t_game *game);
 
 // IMAGE HANDLER
+void	load_image(t_game *game, void **img_ptr, char *path);
 int		load_images(t_game *game);
 void	put_img(t_game *game, void *img_ptr, int x, int y);
 
