@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_render.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 22:10:41 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/15 21:48:24 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/17 02:15:16 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	render_map(t_game *game)
 				render_player(game);
 			else if (game->map[y][x] == 'E')
 				put_img(game, game->exit.img, x, y);
+			else if (game->map[y][x] == 'V')
+				put_img(game, game->vilan.img, x, y);
 			else
 				put_img(game, game->floor_img, x, y);
 		}

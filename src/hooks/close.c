@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 04:32:59 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/15 21:48:44 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/17 02:15:07 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	free_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->player.img_down);
 	mlx_destroy_image(game->mlx, game->player.img_left);
 	mlx_destroy_image(game->mlx, game->player.img_right);
+    mlx_destroy_image(game->mlx, game->vilan.img);
 	mlx_destroy_image(game->mlx, game->exit.img);
 }
 
