@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/22 11:17:30 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/22 19:45:56 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,12 @@ int	check_map(char *map_path, t_game *game)
 		return (0);
 	map_str = get_map_str(map_path);
 	game->map = ft_split(map_str, '\n');
-    if (!validate_map(map_str, game))
+	get_map_dimensions(game->map, game);
+	if (!validate_map(map_str, game))
+	{
+		close_hook(game);
 		return (0);
-	// get_map_dimensions(game->map, game);
+	}
 	free(map_str);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:01:03 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/22 11:20:00 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/22 19:49:17 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int    check_extension(char *map_path)
 
 static void		check_map_chars(t_game *game, char **map, int x, int y)
 {
-	if (map[y][x] == '1')
+    if (map[y][x] == '1')
 		return ;
-	if (map[x][y] == 'C')
+	if (map[y][x] == 'C')
 		game->collectible.available++;
     if (map[y][x + 1] == 'E' || map[y][x - 1] == 'E' ||
 		map[y + 1][x] == 'E' || map[y - 1][x] == 'E')
-        	game->exit.available= 1;
+        	game->exit.available++;
     map[y][x] = '1';
 
     if (map[y][x + 1] != '1')
@@ -44,9 +44,10 @@ int	validate_map_entities(t_game *game)
 {
 	if (game->map_width == game->map_height)
 		return (0);
-	if (game->player.amount != 1)
+	if (game->player.amount != 1 || game->exit.amount != 1)
 		return (0);
-	if (game->collectible.amount == 0)
+	if (game->collectible.amount == 0
+		|| game->collectible.amount != game->collectible.available)
 		return (0);
 	if (game->exit.amount == 0)
 		return (0);
@@ -55,15 +56,14 @@ int	validate_map_entities(t_game *game)
 
 int validate_map(char *map, t_game *game)
 {
-    char    **map_str;
+	char	**map_str;
 
-    map_str = ft_split(map, '\n');
-	get_map_dimensions(map_str, game);
-	if (!validate_map_entities(game))
+	map_str = ft_split(map, '\n');
+	if (!map_str)
 		return (0);
-    check_map_chars(game, map_str, 1, 1);
-    ft_free_matrix(map_str);
-	if (!game->exit.available)
-        return (0);
-    return (1);
+	check_map_chars(game, map_str, game->player.x, game->player.y);
+	ft_free_matrix(map_str);
+	if (!validate_map_entities(game) || (game->exit.available != 1))
+		return (0);
+	return (1);
 }

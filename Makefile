@@ -5,7 +5,7 @@ SRCS = $(filter %.c, $(RAW_SRCS))
 
 OBJS = $(SRCS:.c=.o)
 
-COMPILER = cc -Wall -Wextra -Werror
+COMPILER = clang -Wall -Wextra -Werror
 
 .c.o:
 	$(COMPILER) -c $< -o $(<:.c=.o)
@@ -37,7 +37,7 @@ em: re
 	./$(NAME) maps/large_map.ber
 
 val: re
-	valgrind --leak-check=full ./$(NAME) maps/large_map.ber
+	valgrind --leak-check=full ./$(NAME) maps/min_map.ber
 
 norm:
 	norminette src libs/libft

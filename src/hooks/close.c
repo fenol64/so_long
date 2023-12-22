@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 04:32:59 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/17 02:15:07 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/22 19:41:40 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,10 @@ void	free_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->exit.img);
 }
 
-void	free_map(t_game *game)
-{
-	int	i;
-
-	i = -1;
-	while (game->map[++i])
-		free(game->map[i]);
-	free(game->map);
-}
-
 int	close_hook(t_game *game)
 {
-	free_map(game);
 	free_images(game);
+	ft_free_matrix(game->map);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
