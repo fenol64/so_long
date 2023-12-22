@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:14:21 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/16 12:08:30 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:06:32 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_game	g;
 
-	ft_memset(&g, 0, sizeof(g));
+    g = (t_game){0};
 	if (argc != 2)
 		ft_printf("Usage: ./so_long <map_path>.ber\n");
 	else

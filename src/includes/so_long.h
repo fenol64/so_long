@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:12:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/17 02:14:14 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:11:02 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_block
 {
 	void	*img;
 	int		amount;
+	int		available;
 }	t_block;
 
 typedef struct s_game
@@ -52,6 +53,7 @@ typedef struct s_game
 	t_player	player;
 	t_block		collectible;
 	t_block		exit;
+	char		door_valid;
 	t_block		vilan;
 	int			move_count;
 	char		*moves_text;
@@ -75,8 +77,16 @@ void	move_down(t_game *game);
 void	move_left(t_game *game);
 void	move_right(t_game *game);
 
+// MAP VALIDATIONS
+int		check_extension(char *map_path);
+int		validate_map(char *map, t_game *game);
+
+
 // MAP PARSER
+void	get_map_dimensions(char **map_str, t_game *game);
 int		check_map(char *map_path, t_game *game);
 void	render_map(t_game *game);
 
+// UTILS
+int		ft_free_matrix(char **matrix);
 #endif

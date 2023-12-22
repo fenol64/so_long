@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/15 20:27:02 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:17:30 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
-
-static int	check_extension(char *map_path)
-{
-	if (ft_strnstr(map_path + ft_strlen(map_path) - 4, ".ber", 4))
-		return (1);
-	return (0);
-}
 
 static char	*get_map_str(char *map_path)
 {
@@ -77,11 +70,9 @@ int	check_map(char *map_path, t_game *game)
 		return (0);
 	map_str = get_map_str(map_path);
 	game->map = ft_split(map_str, '\n');
-	game->move_count = 0;
-	game->collectible.amount = 0;
-	game->player.amount = 0;
-	game->exit.amount = 0;
-	get_map_dimensions(game->map, game);
+    if (!validate_map(map_str, game))
+		return (0);
+	// get_map_dimensions(game->map, game);
 	free(map_str);
 	return (1);
 }
