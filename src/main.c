@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:14:21 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/22 19:42:31 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 02:15:44 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		if (!check_map(argv[1], &g))
-			return (error());
+			return (0);
 		g.mlx = mlx_init();
 		load_images(&g);
 		g.win = mlx_new_window(g.mlx, g.map_width, g.map_height, "so_long");

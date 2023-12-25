@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:12:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/22 11:11:02 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 02:15:36 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,49 +20,17 @@
 # include "../../libs/libft/includes/libft.h"
 # include "../../libs/mlx/mlx.h"
 # include "constants.h"
-
-typedef struct s_player
-{
-	void	*img_up;
-	void	*img_left;
-	void	*img_right;
-	void	*img_down;
-	int		x;
-	int		y;
-	int		amount;
-	char	direction;
-
-}	t_player;
-
-typedef struct s_block
-{
-	void	*img;
-	int		amount;
-	int		available;
-}	t_block;
-
-typedef struct s_game
-{
-	void		*mlx;
-	void		*win;
-	char		**map;
-	void		*floor_img;
-	void		*wall_img;
-	int			map_width;
-	int			map_height;
-	t_player	player;
-	t_block		collectible;
-	t_block		exit;
-	char		door_valid;
-	t_block		vilan;
-	int			move_count;
-	char		*moves_text;
-}	t_game;
+# include "structs.h"
 
 // UTILS
+void	map_error(int error_code);
+void	ft_putmatrix(char **matrix);
+char	*ft_strjoin_free(char *s1, char *s2, int free_str);
+int		ft_free_matrix(char **matrix);
 int		error(void);
 
 // HOOKS
+void	free_game(t_game *game, int freelib);
 int		close_hook(t_game *game);
 int		key_hook(int keycode, t_game *game);
 
@@ -88,5 +56,4 @@ int		check_map(char *map_path, t_game *game);
 void	render_map(t_game *game);
 
 // UTILS
-int		ft_free_matrix(char **matrix);
 #endif

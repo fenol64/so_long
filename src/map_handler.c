@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/22 19:45:56 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 02:16:50 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,9 @@ static char	*get_map_str(char *map_path)
 	ret = ft_strdup("");
 	while (line)
 	{
-		ret = ft_strjoin_free_s1(ret, line);
-		free(line);
+		ret = ft_strjoin_free(ret, line, 3);
 		line = get_next_line(fd);
 	}
-	if (line)
-		free(line);
 	close(fd);
 	return (ret);
 }
@@ -65,17 +62,20 @@ void	get_map_dimensions(char **map_str, t_game *game)
 int	check_map(char *map_path, t_game *game)
 {
 	char	*map_str;
+	int		err_code;
 
 	if (!(map_path && check_extension(map_path)))
 		return (0);
 	map_str = get_map_str(map_path);
 	game->map = ft_split(map_str, '\n');
 	get_map_dimensions(game->map, game);
-	if (!validate_map(map_str, game))
+	err_code = validate_map(map_str, game);
+	free(map_str);
+	if (err_code < 0)
 	{
-		close_hook(game);
+		map_error(err_code);
+		free_game(game, 0);
 		return (0);
 	}
-	free(map_str);
 	return (1);
 }

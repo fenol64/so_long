@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnascime <fnascime@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:21:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/15 19:02:48 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/24 12:55:19 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,13 @@
 # define KEY_LEFT 65361
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
+
+# define BER_ERROR -1
+# define MAP_DIMENSION_ERROR -2
+# define PLAYER_ERROR -3
+# define EXIT_ERROR -4
+# define COLLECTABLE_ERROR -5
+# define MAP_ERROR -6
+# define MAP_WALL_ERROR -7
 
 #endif
