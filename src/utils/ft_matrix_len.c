@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 02:39:16 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 02:44:39 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 03:04:50 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_matrix_len(char **matrix)
 {
-    size_t	len;
+	size_t	len;
 
-    len = 0;
-    while (matrix[len])
-        len++;
-    return (len);
+	len = 0;
+	while (matrix[len])
+		len++;
+	return (len);
 }

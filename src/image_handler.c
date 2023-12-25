@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 19:25:39 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/17 02:14:50 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 03:06:37 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	load_images(t_game *game)
 	load_image(game, &game->player.img_right, "src/assets/player-right.xpm");
 	load_image(game, &game->player.img_up, "src/assets/player-up.xpm");
 	load_image(game, &game->player.img_down, "src/assets/player-down.xpm");
-    load_image(game, &game->vilan.img , "src/assets/enimy.xpm");
+	load_image(game, &game->vilan.img, "src/assets/enimy.xpm");
 	load_image(game, &game->exit.img, "src/assets/door.xpm");
 	return (1);
 }

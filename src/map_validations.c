@@ -6,32 +6,31 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:01:03 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 02:55:51 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 03:13:09 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
 
-int    validade_extension(char *map_path)
+int	validade_extension(char *map_path)
 {
 	if (ft_strnstr(map_path + ft_strlen(map_path) - 4, ".ber", 4))
 		return (1);
 	return (0);
 }
 
-static void		validade_player_path(t_game *game, char **map, int x, int y)
+static void	validade_player_path(t_game *game, char **map, int x, int y)
 {
 	if (game->wall_error)
-		return;
+		return ;
 	if (map[y][x] == '1' || map[y][x] == 'E')
 		return ;
 	if (map[y][x] == 'C')
 		game->collectible.available++;
 	if (map[y][x + 1] == 'E' || map[y][x - 1] == 'E' ||
 		map[y + 1][x] == 'E' || map[y - 1][x] == 'E')
-			game->exit.available = 1;
+		game->exit.available = 1;
 	map[y][x] = '1';
-
 	if (map[y][x + 1] != '1')
 		validade_player_path(game, map, x + 1, y);
 	if (map[y][x - 1] != '1')
@@ -88,7 +87,7 @@ int	validate_map_entities(t_game *game)
 	return (1);
 }
 
-int validate_map(char *map, t_game *game)
+int	validate_map(char *map, t_game *game)
 {
 	char	**map_str;
 
