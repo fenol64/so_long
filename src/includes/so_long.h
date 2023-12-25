@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:12:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 02:15:36 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 02:56:07 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	map_error(int error_code);
 void	ft_putmatrix(char **matrix);
 char	*ft_strjoin_free(char *s1, char *s2, int free_str);
 int		ft_free_matrix(char **matrix);
+size_t	ft_matrix_len(char **matrix);
 int		error(void);
 
 // HOOKS
@@ -46,9 +47,8 @@ void	move_left(t_game *game);
 void	move_right(t_game *game);
 
 // MAP VALIDATIONS
-int		check_extension(char *map_path);
+int		validade_extension(char *map_path);
 int		validate_map(char *map, t_game *game);
-
 
 // MAP PARSER
 void	get_map_dimensions(char **map_str, t_game *game);

@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 02:16:50 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 02:56:17 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ void	get_map_dimensions(char **map_str, t_game *game)
 	int	j;
 
 	i = -1;
-	j = 0;
+	j = -1;
 	while (map_str[++i])
 	{
-		j = 0;
+		j = -1;
 		while (map_str[i][j])
 		{
-			if (map_str[i][j] == 'P')
+			if (map_str[i][++j] == 'P')
 			{
 				game->player.x = j;
 				game->player.y = i;
@@ -52,7 +52,6 @@ void	get_map_dimensions(char **map_str, t_game *game)
 				game->collectible.amount++;
 			else if (map_str[i][j] == 'E')
 				game->exit.amount++;
-			j++;
 		}
 	}
 	game->map_width = j * BLOCK_SIZE;
@@ -64,7 +63,7 @@ int	check_map(char *map_path, t_game *game)
 	char	*map_str;
 	int		err_code;
 
-	if (!(map_path && check_extension(map_path)))
+	if (!(map_path && validade_extension(map_path)))
 		return (0);
 	map_str = get_map_str(map_path);
 	game->map = ft_split(map_str, '\n');
