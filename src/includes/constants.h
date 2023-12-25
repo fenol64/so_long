@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:21:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/24 12:55:19 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 04:18:27 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,10 @@
 # define COLLECTABLE_ERROR -5
 # define MAP_ERROR -6
 # define MAP_WALL_ERROR -7
+# define MAP_CHAR_ERROR -8
+
+# ifndef BONUS_ENABLED
+#  define BONUS_ENABLED 0
+# endif
 
 #endif

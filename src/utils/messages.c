@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 04:56:55 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/24 12:12:57 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 03:23:57 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void	map_error(int error_code)
 		ft_putendl_fd("O mapa não foi construido corretamente", 2);
 	else if (error_code == MAP_WALL_ERROR)
 		ft_putendl_fd("O mapa precisa ser fechado por paredes", 2);
+	else if (error_code == MAP_CHAR_ERROR)
+		ft_putendl_fd("O mapa precisa ter apenas P,C,E,0,1 e com bonus V", 2);
 }

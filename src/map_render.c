@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 22:10:41 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/17 02:15:16 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 06:13:35 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,35 @@ void	render_player(t_game *game)
 		put_img(game, game->player.img_right, game->player.x, game->player.y);
 }
 
+void render_door(t_game *game, int x, int y)
+{
+	if (game->collectible.amount == 0 && game->door_opened == 0)
+	{
+		put_img(game, game->exit.frame_1, x, y);
+		ft_sleep(3);
+		put_img(game, game->exit.frame_2, x, y);
+		ft_sleep(3);
+		put_img(game, game->exit.frame_3, x, y);
+		ft_sleep(3);
+		put_img(game, game->exit.frame_4, x, y);
+		ft_sleep(3);
+		put_img(game, game->exit.frame_5, x, y);
+		ft_sleep(3);
+		put_img(game, game->exit.frame_6, x, y);
+		ft_sleep(3);
+		put_img(game, game->exit.frame_7, x, y);
+		ft_sleep(3);
+		put_img(game, game->exit.frame_9, x, y);
+		ft_sleep(3);
+		put_img(game, game->exit.frame_10, x, y);
+		game->door_opened = 1;
+	}
+	else if (game->collectible.amount == 0 && game->door_opened == 1)
+		put_img(game, game->exit.frame_10, x, y);
+	else
+		put_img(game, game->exit.img, x, y);
+}
+
 void	render_map(t_game *game)
 {
 	int	y;
@@ -55,7 +84,7 @@ void	render_map(t_game *game)
 			else if (game->map[y][x] == 'P')
 				render_player(game);
 			else if (game->map[y][x] == 'E')
-				put_img(game, game->exit.img, x, y);
+				render_door(game, x, y);
 			else if (game->map[y][x] == 'V')
 				put_img(game, game->vilan.img, x, y);
 			else

@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:12:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 02:56:07 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 06:13:23 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "structs.h"
 
 // UTILS
+void	ft_sleep(int seconds);
 void	map_error(int error_code);
 void	ft_putmatrix(char **matrix);
 char	*ft_strjoin_free(char *s1, char *s2, int free_str);

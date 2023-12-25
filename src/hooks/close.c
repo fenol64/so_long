@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 04:32:59 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 03:03:16 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 05:34:01 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ void	free_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->player.img_right);
 	mlx_destroy_image(game->mlx, game->vilan.img);
 	mlx_destroy_image(game->mlx, game->exit.img);
+	mlx_destroy_image(game->mlx, game->exit.frame_1);
+	mlx_destroy_image(game->mlx, game->exit.frame_2);
+	mlx_destroy_image(game->mlx, game->exit.frame_3);
+	mlx_destroy_image(game->mlx, game->exit.frame_4);
+	mlx_destroy_image(game->mlx, game->exit.frame_5);
+	mlx_destroy_image(game->mlx, game->exit.frame_6);
+	mlx_destroy_image(game->mlx, game->exit.frame_7);
+	mlx_destroy_image(game->mlx, game->exit.frame_9);
+	mlx_destroy_image(game->mlx, game->exit.frame_10);
 }
 
 void	free_minilibx(t_game *game)

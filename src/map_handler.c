@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 02:56:17 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 04:14:36 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,43 @@ static char	*get_map_str(char *map_path)
 	return (ret);
 }
 
+int	check_map_char(char c)
+{
+	if (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P')
+		return (1);
+	else if (BONUS_ENABLED && c == 'V')
+		return (1);
+	return (0);
+}
+
+int	check_map_chars(char *map_str)
+{
+	int	i;
+
+	i = -1;
+	while (map_str[++i])
+	{
+		if (!check_map_char(map_str[i]) && map_str[i] != '\n')
+		{
+			map_error(MAP_CHAR_ERROR);
+			return (MAP_CHAR_ERROR);
+		}
+	}
+	return (1);
+}
+
 void	get_map_dimensions(char **map_str, t_game *game)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	j = -1;
 	while (map_str[++i])
 	{
 		j = -1;
-		while (map_str[i][j])
+		while (map_str[i][++j])
 		{
-			if (map_str[i][++j] == 'P')
+			if (map_str[i][j] == 'P')
 			{
 				game->player.x = j;
 				game->player.y = i;
@@ -69,12 +93,13 @@ int	check_map(char *map_path, t_game *game)
 	game->map = ft_split(map_str, '\n');
 	get_map_dimensions(game->map, game);
 	err_code = validate_map(map_str, game);
-	free(map_str);
-	if (err_code < 0)
+	if ((check_map_chars(map_str) < 0) || (err_code < 0))
 	{
 		map_error(err_code);
 		free_game(game, 0);
+		free(map_str);
 		return (0);
 	}
+	free(map_str);
 	return (1);
 }

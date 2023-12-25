@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:01:03 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 03:13:09 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/25 03:26:56 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	validate_map_walls(char **map_str, int *wall_error)
 				if (map_str[i][j] != '1')
 					*wall_error = 1;
 			}
-			else if ((j == 0) || (j == ft_strlen(map_str[i]) - 1))
+			else if ((j == 0) || (j == (ft_strlen(map_str[i]) - 1)))
 			{
 				if (map_str[i][j] != '1')
 					*wall_error = 1;
