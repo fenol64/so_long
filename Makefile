@@ -13,8 +13,6 @@ FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-
-
 $(NAME):	$(OBJS)
 	make -C libs/libft
 	make -C libs/mlx
@@ -40,3 +38,11 @@ fclean:	clean
 	make fclean -C libs/libft
 
 re:	fclean all
+
+val: $(OBJS)
+	make -C libs/libft
+	make -C libs/mlx
+	$(COMPILER) $(FLAGS) $(OBJS) libs/libft/libft.a -o $(NAME) -Llibs/mlx -lmlx -lX11 -lXext -D BONUS_ENABLED=0 -g
+	make clean
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) maps/map.ber
+	@ echo "compile complete\n"
