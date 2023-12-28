@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:21:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/28 02:08:56 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/28 02:39:06 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define KEY_LEFT 65361
 # define KEY_DOWN 65364
 # define KEY_RIGHT 65363
+# define KEY_SPACE 32
 
 # define BER_ERROR -1
 # define MAP_DIMENSION_ERROR -2

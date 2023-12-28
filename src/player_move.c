@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 02:10:28 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 03:08:42 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/28 02:45:45 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,17 @@ void	move_right(t_game *game)
 		game->move_count++;
 		render_map(game);
 	}
+}
+
+void	atack_enemy(t_game *game)
+{
+	if (game->map[game->player.y - 1][game->player.x] == 'V')
+		game->map[game->player.y - 1][game->player.x] = '0';
+	else if (game->map[game->player.y + 1][game->player.x] == 'V')
+		game->map[game->player.y + 1][game->player.x] = '0';
+	else if (game->map[game->player.y][game->player.x - 1] == 'V')
+		game->map[game->player.y][game->player.x - 1] = '0';
+	else if (game->map[game->player.y][game->player.x + 1] == 'V')
+		game->map[game->player.y][game->player.x + 1] = '0';
+	render_map(game);
 }

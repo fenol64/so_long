@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 04:30:33 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/26 10:19:36 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/28 02:40:44 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	key_hook(int keycode, t_game *game)
 		move_down(game);
 	else if (keycode == KEY_D || keycode == KEY_RIGHT)
 		move_right(game);
+	else if (keycode == KEY_SPACE)
+		atack_enemy(game);
 	else
 		ft_printf("Invalid key\n");
 	return (0);
