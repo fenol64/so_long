@@ -1,4 +1,5 @@
 NAME=so_long
+NAME_BONUS=so_long_bonus
 
 RAW_SRCS= $(shell find src)
 SRCS = $(filter %.c, $(RAW_SRCS))
@@ -18,16 +19,17 @@ $(NAME):	$(OBJS)
 	make -C libs/libft
 	make -C libs/mlx
 	$(COMPILER) $(FLAGS) $(OBJS) libs/libft/libft.a -o $(NAME) -Llibs/mlx -lmlx -lX11 -lXext
-	make clean
 	@ echo "compile complete\n"
 
-bonus: override BONUS_ENABLED = 1
-bonus: $(OBJS)
+
+$(NAME_BONUS): $(OBJS)
 	make -C libs/libft
 	make -C libs/mlx
 	$(COMPILER) $(FLAGS) $(OBJS) libs/libft/libft.a -o $(NAME)_bonus -Llibs/mlx -lmlx -lX11 -lXext
-	make clean
 	@ echo "compile complete\n"
+
+bonus:	override BONUS_ENABLED = 1
+bonus:	$(NAME_BONUS)
 
 clean:
 	rm -f $(OBJS)
