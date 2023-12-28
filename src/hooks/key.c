@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 04:30:33 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 02:21:28 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:19:36 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 int	key_hook(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
-	{
 		close_hook(game);
-		return (0);
-	}
-	if (keycode == KEY_W || keycode == KEY_UP)
+	else if (keycode == KEY_W || keycode == KEY_UP)
 		move_up(game);
 	else if (keycode == KEY_A || keycode == KEY_LEFT)
 		move_left(game);

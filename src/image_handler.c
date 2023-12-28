@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 19:25:39 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/26 10:00:27 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/28 00:48:41 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	load_images(t_game *game)
 	load_image(game, &game->player.img_left, "src/assets/player/left.xpm");
 	load_image(game, &game->player.img_right, "src/assets/player/right.xpm");
 	load_image(game, &game->player.img_up, "src/assets/player/up.xpm");
-	load_image(game, &game->player.img_down, "src/assets/player-down.xpm");
+	load_image(game, &game->player.img_down, "src/assets/player/down.xpm");
 	load_image(game, &game->vilan.img, "src/assets/enimy.xpm");
 	load_image(game, &game->exit.img, "src/assets/exit/frame_0.xpm");
 	load_image(game, &game->exit.frame_1, "src/assets/exit/frame_1.xpm");

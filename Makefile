@@ -44,5 +44,5 @@ val: $(OBJS)
 	make -C libs/mlx
 	$(COMPILER) $(FLAGS) $(OBJS) libs/libft/libft.a -o $(NAME) -Llibs/mlx -lmlx -lX11 -lXext -D BONUS_ENABLED=0 -g
 	make clean
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) maps/map.ber
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) maps/$(if $(MAP),$(MAP),map.ber)
 	@ echo "compile complete\n"
