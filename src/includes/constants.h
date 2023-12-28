@@ -6,16 +6,12 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:21:08 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/28 01:37:00 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/28 02:08:56 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONSTANTS_H
 # define CONSTANTS_H
-
-# ifndef BONUS_ENABLED
-#  define BONUS_ENABLED 0
-# endif
 
 # define BLOCK_SIZE 32
 

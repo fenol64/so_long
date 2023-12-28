@@ -6,11 +6,11 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 06:12:03 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/26 10:02:48 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/28 02:28:57 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_sleep(int seconds)
+void	ft_sleep(unsigned int seconds)
 {
 	unsigned int	i;
 	unsigned int	j;

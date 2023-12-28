@@ -5,25 +5,27 @@ SRCS = $(filter %.c, $(RAW_SRCS))
 
 OBJS = $(SRCS:.c=.o)
 
+BONUS_ENABLED=0
 COMPILER = cc
 FLAGS = -Wall -Wextra -Werror
 
 .c.o:
-	$(COMPILER) -c $< -o $(<:.c=.o)
+	$(COMPILER) -D BONUS_ENABLED=$(BONUS_ENABLED) $(FLAGS) -c $< -o $(<:.c=.o)
 
 all: $(NAME)
 
 $(NAME):	$(OBJS)
 	make -C libs/libft
 	make -C libs/mlx
-	$(COMPILER) $(FLAGS) $(OBJS) libs/libft/libft.a -o $(NAME) -Llibs/mlx -lmlx -lX11 -lXext -D BONUS_ENABLED=0
+	$(COMPILER) $(FLAGS) $(OBJS) libs/libft/libft.a -o $(NAME) -Llibs/mlx -lmlx -lX11 -lXext
 	make clean
 	@ echo "compile complete\n"
 
+bonus: override BONUS_ENABLED = 1
 bonus: $(OBJS)
 	make -C libs/libft
 	make -C libs/mlx
-	$(COMPILER) $(FLAGS) $(OBJS) libs/libft/libft.a -o $(NAME)_bonus -Llibs/mlx -lmlx -lX11 -lXext -D BONUS_ENABLED=1
+	$(COMPILER) $(FLAGS) $(OBJS) libs/libft/libft.a -o $(NAME)_bonus -Llibs/mlx -lmlx -lX11 -lXext
 	make clean
 	@ echo "compile complete\n"
 
