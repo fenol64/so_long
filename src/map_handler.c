@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/28 00:51:32 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/28 01:30:12 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ static char	*get_map_str(char *map_path)
 	char	*line;
 
 	fd = open(map_path, O_RDONLY);
-	line = get_next_line(fd);
+	if (fd < 0)
+		return (NULL);
 	ret = ft_strdup("");
+	line = get_next_line(fd);
 	while (line)
 	{
 		ret = ft_strjoin_free(ret, line, 3);
@@ -90,8 +92,12 @@ int	check_map(char *map_path, t_game *game)
 	if (!(map_path && validade_extension(map_path)))
 		return (0);
 	map_str = get_map_str(map_path);
-	if (!map_str)
+	if (!map_str || !*map_str || ft_strlen(map_str) == 0)
+	{
+		map_error(MAP_ERROR);
+		free(map_str);
 		return (0);
+	}
 	game->map = ft_split(map_str, '\n');
 	get_map_dimensions(game->map, game);
 	err_code = validate_map(map_str, game);
