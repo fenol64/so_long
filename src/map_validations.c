@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 10:01:03 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 03:26:56 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/29 13:09:01 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int	validate_map_entities(t_game *game)
 int	validate_map(char *map, t_game *game)
 {
 	char	**map_str;
+	int		error_code;
 
 	map_str = ft_split(map, '\n');
 	if (!map_str)
@@ -97,5 +98,8 @@ int	validate_map(char *map, t_game *game)
 	validate_map_walls(map_str, &game->wall_error);
 	validade_player_path(game, map_str, game->player.x, game->player.y);
 	ft_free_matrix(map_str);
-	return (validate_map_entities(game));
+	error_code = validate_map_entities(game);
+	if (error_code < 0)
+		map_error(error_code);
+	return (error_code);
 }

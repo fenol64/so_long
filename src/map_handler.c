@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 02:47:37 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/28 01:30:12 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/29 13:07:27 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ int	check_map(char *map_path, t_game *game)
 	err_code = validate_map(map_str, game);
 	if ((check_map_chars(map_str) < 0) || (err_code < 0))
 	{
-		map_error(err_code);
 		free_game(game, 0);
 		free(map_str);
 		return (0);
