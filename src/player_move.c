@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 02:10:28 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/28 02:45:45 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/29 13:18:48 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	move_up(t_game *game)
 			close_hook(game);
 		game->map[game->player.y][game->player.x] = 'P';
 		game->move_count++;
+		ft_printf("Move count: %d\r", game->move_count);
 		render_map(game);
 	}
 }
@@ -52,6 +53,7 @@ void	move_down(t_game *game)
 			close_hook(game);
 		game->map[game->player.y][game->player.x] = 'P';
 		game->move_count++;
+		ft_printf("Move count: %d\r", game->move_count);
 		render_map(game);
 	}
 }
@@ -74,6 +76,7 @@ void	move_left(t_game *game)
 			close_hook(game);
 		game->map[game->player.y][game->player.x] = 'P';
 		game->move_count++;
+		ft_printf("Move count: %d\r", game->move_count);
 		render_map(game);
 	}
 }
@@ -96,6 +99,7 @@ void	move_right(t_game *game)
 			close_hook(game);
 		game->map[game->player.y][game->player.x] = 'P';
 		game->move_count++;
+		ft_printf("Move count: %d\r", game->move_count);
 		render_map(game);
 	}
 }
