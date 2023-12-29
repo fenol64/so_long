@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 11:55:04 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/25 05:24:27 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/29 13:35:35 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct s_player
 	int		y;
 	int		amount;
 	char	direction;
-
 }	t_player;
 
 typedef struct s_block

@@ -6,7 +6,7 @@
 /*   By: fnascime <fnascime@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 04:56:55 by fnascime          #+#    #+#             */
-/*   Updated: 2023/12/29 12:56:49 by fnascime         ###   ########.fr       */
+/*   Updated: 2023/12/29 13:35:57 by fnascime         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	error(void)
 
 void	map_error(int error_code)
 {
-    error();
+	error();
 	if (error_code == BER_ERROR)
 		ft_putendl_fd("O mapa precisa ter o formato.ber", 2);
 	else if (error_code == MAP_DIMENSION_ERROR)
