@@ -1,8 +1,6 @@
-<center>
-    <h1>42 so long</h1>
-</center>
+# 42 so long
 
-![Screenshot 1](screenshots/1.png)
+![webm](screenshots/so_long.gif)
 
 ## Description
 
@@ -32,6 +30,8 @@ The map must be composed of only 5 possible characters:
 - space bar to kill enemies in bonus
 - ESC to quit the game
 - X to close the window
+
+![Screenshot 1](screenshots/1.png)
 
 ## Bonus
 
